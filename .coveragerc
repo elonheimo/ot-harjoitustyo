@@ -1,0 +1,7 @@
+[run]
+source = src
+omit = 
+        src/**/__init__.py
+        src/tests/**
+        laskarit
+        laskarit/viikko2/unicafe/src/tests/**
