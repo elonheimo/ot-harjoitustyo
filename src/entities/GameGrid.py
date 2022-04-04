@@ -1,4 +1,5 @@
-from entities import Player
+import random
+from entities.Player import Player
 from collections import namedtuple
 def victory_line_length(grid_size :int):
         if grid_size == 3: return 3
@@ -13,9 +14,22 @@ class GameGrid:
         self.player2 = player2
         self.win_length = victory_line_length(grid_sise)
         self.winner = None
+        self.turn = self.player1 if random.choice([True, False]) else self.player2
     
-    def place_to_grid(self, x, y, player: Player):
-        self.grid[y][x] = player
+
+    def change_turn(self):
+        if self.turn == self.player1:
+            self.turn = self.player2
+        else:
+            self.turn = self.player1
+
+    def place_to_grid(self, x, y, player = None):
+        if player == None:
+            self.grid[y][x] = self.turn
+            self.change_turn()
+        else:
+            self.grid[y][x] = player
+        print("clicked","x",x,"y",y,self.grid[y][x].name)
 
     def is_win(self):
         Point = namedtuple("Point", "x y")
@@ -69,6 +83,7 @@ class GameGrid:
                         self.winner = self.grid[point.y][point.x]
                         return True
         return False
+
 
     def winner():
         pass
