@@ -30,6 +30,9 @@ class GameGrid:
                     ret += "p2 "
         return ret
 
+    def empty_grid(self):
+        self.grid = [[None for x in range(self.grid_size) ] for y in range(self.grid_size)]
+
     def change_turn(self):
         if self.turn == self.player1:
             self.turn = self.player2

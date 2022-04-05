@@ -31,7 +31,7 @@ class UI:
         self._hide_current_view()
         self._current_view = GridView(
             self._root,
-            self._handle_settings_view,
+            self._handle_highscores_view,
             grid
         )
         self._current_view.pack()
@@ -48,14 +48,15 @@ class UI:
         )
         self._current_view.pack()
 
-    def _show_highscores_view(self):
+    def _show_highscores_view(self, game_grid):
         self._hide_current_view()
         self._current_view = HighscoresView(
             self._root,
             self._show_grid_view,
-            self._show_settings_view
+            self._show_settings_view,
+            game_grid
         )
         self._current_view.pack()
     
-    def _handle_highscores_view(self):
-        self._show_highscores_view()
+    def _handle_highscores_view(self, game_grid):
+        self._show_highscores_view(game_grid)

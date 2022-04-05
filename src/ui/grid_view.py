@@ -1,3 +1,4 @@
+from cProfile import label
 from doctest import master
 from functools import partial
 from tkinter import *
@@ -39,10 +40,20 @@ class GridView:
         self._addButtons()
 
     def _button_click(self, x, y):
+
         if self._game_grid.grid[y][x] == None:
                 self._game_grid.place_to_grid(x,y)
                 self._addButtons()
-        self._turn_label["text"] = f"{self._game_grid.turn.name}'s turn"
+
+        if self._game_grid.is_win():
+            self._turn_label["text"] = f"{self._game_grid.winner.name} won. Press here to exit"
+            self._turn_label.bind(
+                "<Button-1>",#"<Return>", #"<Button-1>", 
+                lambda e: self._handle_hichscores_view(self._game_grid)
+            )
+        else:
+            self._turn_label["text"] = f"{self._game_grid.turn.name}'s turn"
+
         print(self._game_grid)
 
     def _addButtons(self):
