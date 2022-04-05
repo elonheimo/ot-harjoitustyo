@@ -16,6 +16,19 @@ class GameGrid:
         self.winner = None
         self.turn = self.player1 if random.choice([True, False]) else self.player2
     
+    def __str__(self) -> str:
+        ret = f"\np1 {self.player1.name} | p2 {self.player2.name}"
+        ret += f"\nturn: {self.turn.name}"
+        for y in range(self.grid_size):
+            ret += "\n"
+            for x in range(self.grid_size):
+                if self.grid[y][x] == None:
+                    ret += "[] "
+                elif self.grid[y][x] == self.player1:
+                    ret += "p1 "
+                else:
+                    ret += "p2 "
+        return ret
 
     def change_turn(self):
         if self.turn == self.player1:
@@ -83,9 +96,5 @@ class GameGrid:
                         self.winner = self.grid[point.y][point.x]
                         return True
         return False
-
-
-    def winner():
-        pass
     
     

@@ -1,6 +1,8 @@
-
+from entities.GameGrid import GameGrid
+from entities.Player import Player
 from ui.grid_view import GridView
 from ui.settings_view import SettingsView
+from ui.highscore_view import HighscoresView
 from tkinter import *
 
 
@@ -13,8 +15,8 @@ class UI:
         self._current_view = None
 
     def start(self):
-        #self._show_grid_view()
-        self._show_settings_view()
+        grid = GameGrid(3,Player("X"),Player("O"))
+        self._handle_settings_view(grid)
 
     def _hide_current_view(self):
         if self._current_view:
@@ -22,15 +24,38 @@ class UI:
 
         self._current_view = None
 
+    def _handle_grid_view(self, grid):
+        self._show_grid_view(grid)
+
     def _show_grid_view(self,grid):
         self._hide_current_view()
-        self._current_view = GridView(self._root,grid)
+        self._current_view = GridView(
+            self._root,
+            self._handle_settings_view,
+            grid
+        )
         self._current_view.pack()
 
-    def _show_settings_view(self):
+    def _handle_settings_view(self, grid):
+        self._show_settings_view(grid)
+
+    def _show_settings_view(self, game_grid):
         self._hide_current_view()
         self._current_view = SettingsView(
             self._root,
-            self._show_grid_view    
+            self._handle_grid_view,
+            game_grid
         )
         self._current_view.pack()
+
+    def _show_highscores_view(self):
+        self._hide_current_view()
+        self._current_view = HighscoresView(
+            self._root,
+            self._show_grid_view,
+            self._show_settings_view
+        )
+        self._current_view.pack()
+    
+    def _handle_highscores_view(self):
+        self._show_highscores_view()
