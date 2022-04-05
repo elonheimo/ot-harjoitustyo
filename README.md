@@ -4,6 +4,8 @@
 
 - [Työaikakirjanpito](/dokumentaatio/tuntikirjanpito.md)
 
+- [Changelog](/dokumentaatio/changelog.md)
+
 ## Asennusohjeet
 1. Asenna riippuvuudet
 

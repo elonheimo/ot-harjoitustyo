@@ -3,6 +3,7 @@
 ## Viikko 3
 
 - GameGrid ja Player luokka lisätty
+- Grafiikat lisätty
 
 ## Viikko 4
 
