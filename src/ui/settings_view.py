@@ -1,3 +1,4 @@
+from functools import partial
 from tkinter import *
 
 from entities.GameGrid import *
@@ -7,8 +8,9 @@ class SettingsView:
         self._show_grid_view = show_grid_view
         self._root = root
         self._frame = None
-        self._player1_name = None
-        self._player2_name = None
+        self._player1_entry = None
+        self._player2_entry = None
+        self._selected_grid_size = None
         self._initialize()
 
     def pack(self):
@@ -24,10 +26,10 @@ class SettingsView:
 
         label_name = Label(master = self._frame, text = "Tic-tac-toe")
         label_player1 = Label(master = self._frame, text="Player 1 name: ")
-        entry_player1 = Entry(master = self._frame)
+        self._player1_entry  = Entry(master = self._frame)
         
         label_player2 = Label(master = self._frame, text="Player 2 name: ")
-        entry_player2 = Entry(master = self._frame)
+        self._player2_entry  = Entry(master = self._frame)
 
 
         grid_size_options = [
@@ -35,17 +37,27 @@ class SettingsView:
             "5 x 5",
             "7 x 7",
         ]
-        selected_grid_size = StringVar()
-        selected_grid_size.set( grid_size_options[0])
-        drop = OptionMenu( self._frame , selected_grid_size , *grid_size_options )
-        grid = GameGrid(3,Player("kaaleppi"),Player("Uolevi"))
-        start_button = Button(master= self._frame, text= "Play", command=self._show_grid_view(grid))
+        self._selected_grid_size = StringVar()
+        self._selected_grid_size.set( grid_size_options[0])
+        drop = OptionMenu( self._frame , self._selected_grid_size , *grid_size_options )
+        start_button = Button(
+            master= self._frame,
+            text= "Play",
+            command= lambda: self._show_grid_view(self._create_game_grid())
+            )
         
         label_name.grid(row = 0, column=0, columnspan=2)
         label_player1.grid(row=1,column=0,sticky=N+S+E+W)
-        entry_player1.grid(row=1,column=1,sticky=N+S+E+W)
+        self._player1_entry .grid(row=1,column=1,sticky=N+S+E+W)
         label_player2.grid(row=2,column=0,sticky=N+S+E+W)
-        entry_player2.grid(row=2,column=1,sticky=N+S+E+W)
+        self._player2_entry .grid(row=2,column=1,sticky=N+S+E+W)
         drop.grid(row=3,column=0,sticky=N+S+E+W)
         start_button.grid(row=3,column=1,sticky=N+S+E+W)
         self._frame.columnconfigure(1, weight=1)
+
+    def _create_game_grid(self):
+        size = int(self._selected_grid_size.get()[0]) #first index is the grid size
+        player1 = Player(self._player1_entry.get())
+        player2 = Player(self._player1_entry.get())
+        print(size, player1, player2)
+        return GameGrid(size,player1,player2)
