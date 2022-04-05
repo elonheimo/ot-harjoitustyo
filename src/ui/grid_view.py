@@ -59,10 +59,21 @@ class GridView:
     def _addButtons(self):
 
         self.buttonFrame = Frame( master= self._frame)
-        self.buttonFrame.rowconfigure(0, weight=1)
-        self.buttonFrame.columnconfigure(0, weight=1)
+        self.buttonFrame.rowconfigure(
+            tuple( range( self._game_grid.grid_size ) ), 
+            weight=1,
+            minsize=70)
+        self.buttonFrame.columnconfigure(
+            tuple( range( self._game_grid.grid_size ) ),
+            weight=1,
+            minsize=70
+        )
 
-        self.buttonFrame.grid(row=1, column=0, sticky=N+S+E+W)
+        self.buttonFrame.grid(row=1, column=0, 
+            rowspan = self._game_grid.grid_size,
+            columnspan = self._game_grid.grid_size,
+            sticky=N+S+E+W
+        )
 
         for y in range(self._game_grid.grid_size):
             for x in range(self._game_grid.grid_size):
@@ -79,5 +90,4 @@ class GridView:
                     else: text = "O"
                     label = Label(self.buttonFrame, text = text)
                     label.grid(row = y, column = x, sticky=N+S+E+W)
-        self.buttonFrame.rowconfigure(tuple( range( self._game_grid.grid_size ) ), weight=1)
-        self.buttonFrame.columnconfigure(tuple( range( self._game_grid.grid_size ) ), weight=1)
+        

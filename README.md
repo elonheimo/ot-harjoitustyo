@@ -1,13 +1,39 @@
 ## Dokumentaatio
 
-[Vaatimusmäärittely](/dokumentaatio/vaatimusmaarittely.md)
-[Työaikakirjanpito](/dokumentaatio/tuntikirjanpito.md)
+- [Vaatimusmäärittely](/dokumentaatio/vaatimusmaarittely.md)
+
+- [Työaikakirjanpito](/dokumentaatio/tuntikirjanpito.md)
+
+## Asennusohjeet
+1. Asenna riippuvuudet
+
+```bash
+poetry install
+```
+
+2. Käynnistä ohjelma:
+```bash
+poetry run invoke start
+```
 
 
+## Komentorivitoiminnot
 
-## Viikko 1
+### Ohjelman suoritus
+```bash
+poetry run invoke start
+```
 
-[gitlog.txt](/viikko1/gitlog.txt)
+### Testaus
+```bash
+poetry run invoke test
+```
+### Testikattavuus
+```bash
+poetry run invoke coverage-report
+```
+raportin voi katsoa avaamalla selaimessa _htmlcov/index.html_ -tiedoston.
 
-[komentorivi.txt](/viikko1/komentorivi.txt)
+###
+
 

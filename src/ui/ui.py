@@ -8,7 +8,7 @@ from tkinter import *
 
 class UI:
 
-    def __init__(self, root):
+    def __init__(self, root :Tk):
         self._root = root
         self._root.columnconfigure(0, weight=1)
         self._root.rowconfigure(0, weight=1)

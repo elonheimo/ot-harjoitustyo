@@ -15,7 +15,7 @@ class SettingsView:
         self._initialize()
 
     def pack(self):
-        self._frame.grid(row=0,column=0,sticky=E+W+S+N)
+        self._frame.grid(row=0,column=0,sticky=E+W+S+N,padx=10,pady=10)
         self._frame.columnconfigure(0, weight=1)
         self._frame.rowconfigure(0, weight=1)
 
