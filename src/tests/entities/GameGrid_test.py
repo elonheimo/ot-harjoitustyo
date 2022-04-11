@@ -1,7 +1,7 @@
 
 import unittest
 
-from entities.GameGrid import GameGrid
+from entities.game_grid import GameGrid
 from entities.player import Player
 
 
@@ -34,7 +34,10 @@ class TestGameGrid(unittest.TestCase):
 
         self.gamegrid = GameGrid(5, self.player1, self.player2)
         for y in range(0, 4):
-            self.gamegrid.place_to_grid(y, y+1, self.player1)
+            self.gamegrid.place_to_grid(
+                y,
+                self.gamegrid.grid_size - 1 -y,
+                self.player1)
         self.assertEqual(True, self.gamegrid.is_win())
 
     def test_win_decreasing_diagonal(self):
