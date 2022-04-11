@@ -6,3 +6,5 @@
 | 31.3. | 7    | Pelilogiikan runko ja error tuskastelua |
 | 4.4.  | 8    | grafiikoiden lisääminen |
 | 5.4.  | 8    | grafiikoita toimiviksi |
+| 11.4. | 4    | koodin refaktorointia siistimmäksi, voittologiikan korjaus |
+| aika yht:    | *31h*    ||

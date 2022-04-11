@@ -6,6 +6,7 @@
 - Grafiikat lisätty
 
 ## Viikko 4
+- Gamegrid voittologiikka korjattu ja testit korjattu
 
 ## Viikko 5
 
