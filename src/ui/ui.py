@@ -1,9 +1,10 @@
+from tkinter import Tk
+
 from entities.game_grid import GameGrid
 from entities.player import Player
 from ui.grid_view import GridView
 from ui.settings_view import SettingsView
 from ui.highscore_view import HighscoresView
-from tkinter import *
 
 
 class UI:
