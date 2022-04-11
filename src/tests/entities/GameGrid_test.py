@@ -2,7 +2,7 @@
 import unittest
 
 from entities.GameGrid import GameGrid
-from entities.Player import Player
+from entities.player import Player
 
 
 class TestGameGrid(unittest.TestCase):

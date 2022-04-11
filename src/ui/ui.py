@@ -1,5 +1,5 @@
 from entities.GameGrid import GameGrid
-from entities.Player import Player
+from entities.player import Player
 from ui.grid_view import GridView
 from ui.settings_view import SettingsView
 from ui.highscore_view import HighscoresView

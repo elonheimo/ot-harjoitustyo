@@ -1,6 +1,6 @@
 import random
-from entities.Player import Player
 from collections import namedtuple
+from entities.player import Player
 
 
 def victory_line_length(grid_size: int):
@@ -10,6 +10,7 @@ def victory_line_length(grid_size: int):
         return 4
     if grid_size == 7:
         return 5
+    return 3
 
 
 class GameGrid:
@@ -30,7 +31,7 @@ class GameGrid:
         for y in range(self.grid_size):
             ret += "\n"
             for x in range(self.grid_size):
-                if self.grid[y][x] == None:
+                if self.grid[y][x] is None:
                     ret += "[] "
                 elif self.grid[y][x] == self.player1:
                     ret += "p1 "
@@ -49,7 +50,7 @@ class GameGrid:
             self.turn = self.player1
 
     def place_to_grid(self, x, y, player=None):
-        if player == None:
+        if player is None:
             self.grid[y][x] = self.turn
             self.change_turn()
         else:
@@ -94,15 +95,15 @@ class GameGrid:
             consecutive_count = 0
             consecutive_player = None
             for point in line:
-                if self.grid[point.y][point.x] == None:
+                if self.grid[point.y][point.x] is None:
                     consecutive_count = 0
                 else:
                     if consecutive_count >= 1:
                         if consecutive_player != self.grid[point.y][point.x]:
-                            consecutive_count == 0
+                            consecutive_count = 0
                             consecutive_player = self.grid[point.y][point.x]
                     else:
-                        consecutive_player == self.grid[point.y][point.x]
+                        consecutive_player = self.grid[point.y][point.x]
                     consecutive_count += 1
                     if consecutive_count == self.win_length:
                         self.winner = self.grid[point.y][point.x]

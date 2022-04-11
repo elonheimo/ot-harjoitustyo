@@ -4,7 +4,7 @@ from functools import partial
 from tkinter import *
 from entities import *
 from entities.GameGrid import GameGrid
-from entities.Player import Player
+from entities.player import Player
 
 
 class GridView:
