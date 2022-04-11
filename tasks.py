@@ -1,5 +1,7 @@
 from invoke import task
-
+#
+# poetry run invoke task-name-here
+#
 @task
 def test(ctx):
     ctx.run("pytest src", pty=True)
@@ -19,3 +21,7 @@ def start(ctx):
 @task
 def format(ctx):
     ctx.run("autopep8 --in-place --recursive src", pty=True)
+
+@task
+def lint(ctx):
+    ctx.run("pylint src", pty=True)
