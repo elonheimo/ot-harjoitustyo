@@ -1,6 +1,6 @@
 from tkinter import *
 
-from entities.GameGrid import GameGrid
+from entities.game_grid import GameGrid
 
 
 class HighscoresView:

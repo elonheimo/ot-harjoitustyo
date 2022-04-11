@@ -1,7 +1,7 @@
 from functools import partial
 from tkinter import *
 
-from entities.GameGrid import *
+from entities.game_grid import *
 
 
 class SettingsView:

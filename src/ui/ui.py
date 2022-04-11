@@ -1,4 +1,4 @@
-from entities.GameGrid import GameGrid
+from entities.game_grid import GameGrid
 from entities.player import Player
 from ui.grid_view import GridView
 from ui.settings_view import SettingsView

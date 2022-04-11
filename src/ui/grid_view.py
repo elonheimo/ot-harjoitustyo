@@ -1,9 +1,7 @@
-from cProfile import label
-from doctest import master
 from functools import partial
 from tkinter import *
 from entities import *
-from entities.GameGrid import GameGrid
+from entities.game_grid import GameGrid
 from entities.player import Player
 
 
