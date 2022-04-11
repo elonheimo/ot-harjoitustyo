@@ -3,5 +3,7 @@ source = src
 omit = 
         src/**/__init__.py
         src/tests/**
+        src/ui/**
         laskarit
         laskarit/viikko2/unicafe/src/tests/**
+        src/index.py
