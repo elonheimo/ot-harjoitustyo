@@ -6,6 +6,9 @@
 
 - [Changelog](/dokumentaatio/changelog.md)
 
+- [Arkkitehtuuri](/dokumentaatio/arkkitehtuuri.md)
+
+
 ## Asennusohjeet
 1. Asenna riippuvuudet
 
