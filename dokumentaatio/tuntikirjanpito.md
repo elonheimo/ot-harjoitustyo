@@ -7,4 +7,7 @@
 | 4.4.  | 8    | grafiikoiden lisääminen |
 | 5.4.  | 8    | grafiikoita toimiviksi |
 | 11.4. | 4    | koodin refaktorointia siistimmäksi, voittologiikan korjaus |
-| aika yht:    | *31h*    ||
+| 11.4. | 4    | testikattavuuden lisääminen |
+| 12.4. | 2    | arkkitehtuuri lisätty |
+| 12.4. | 6    | tietokanta-asioiden opettelua ja ongelmiin juuttumista |
+| aika yht:    | *43h*    ||

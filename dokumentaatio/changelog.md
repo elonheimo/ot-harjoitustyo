@@ -7,6 +7,9 @@
 
 ## Viikko 4
 - Gamegrid voittologiikka korjattu ja testit korjattu
+- testikattavuutta parannettu
+- arkkitehtuuri lisätty
+- tietokantaominaisuuksia lisätty, mutta ei implementoitu muuhun logiikkaan
 
 ## Viikko 5
 
