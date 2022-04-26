@@ -27,17 +27,17 @@ Huipputulokset -> Asetukset
 
 ## Perusversion tarjoama toiminnallisuus
 - Asetukset
-  - Pelaajat asettavat nimensä
+  - Pelaajat asettavat nimensä [tehty]
     - Nimen pituus 3 - 8 merkkiä
-  - Pelimuodon valinta
+  - Pelimuodon valinta [tehty]
     - 3x3, 5x5 tai 7x7 ruudukko
-- Pelinäkymä
-  - Pelaajat asettavat vuoron perään merkkejä ruudukkoon
-  - Voittoon vaadittavan yhtenäisen suoran pituus
+- Pelinäkymä [tehty]
+  - Pelaajat asettavat vuoron perään merkkejä ruudukkoon [tehty]
+  - Voittoon vaadittavan yhtenäisen suoran pituus [tehty]
     - 3x3: 3
     - 5x5: 4
     - 7x7: 5
-- Huipputulokset
+- Huipputulokset [tehty]
   - Näytöllä näkyy pelimuotokohtainen lista parhaista pelaajista
   - Käyttäjä voi palata asetuksiin vaihtakseen pelimuotoa tai nimiä
   - Käyttäjä voi pelata uudestaan
