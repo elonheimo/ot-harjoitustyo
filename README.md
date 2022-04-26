@@ -1,3 +1,12 @@
+## Ristinollapeli
+Sovelluksen avulla käyttäjä voi pelata peliä ristinolla eri kokoisilla ruudukoilla: 3x3, 5x5, 7x7.
+
+Huipputulokset tallennetaan tietokantaan pelaajanimien perusteella.
+
+## Release
+
+[viikko 5](https://github.com/elonheimo/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Dokumentaatio
 
 - [Vaatimusmäärittely](/dokumentaatio/vaatimusmaarittely.md)
@@ -39,6 +48,10 @@ poetry run invoke coverage-report
 ```
 raportin voi katsoa avaamalla selaimessa _htmlcov/index.html_ -tiedoston.
 
-###
+### Pylint
+[.pylintrc](./.pylintrc) tarkistuskomento:
 
+```bash
+poetry run invoke lint
+```
 
