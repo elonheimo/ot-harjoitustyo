@@ -13,4 +13,6 @@
 
 ## Viikko 5
 
+- tietokantaominaisuudet lisätty käyttöliittymään
+
 ## Viikko 6

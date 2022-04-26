@@ -10,4 +10,5 @@
 | 11.4. | 4    | testikattavuuden lisääminen |
 | 12.4. | 2    | arkkitehtuuri lisätty |
 | 12.4. | 6    | tietokanta-asioiden opettelua ja ongelmiin juuttumista |
-| aika yht:    | *43h*    ||
+| 26.4. | 9    | tietokannan liittäminen käyttöliittymään |
+| aika yht:    | *52h*    ||
