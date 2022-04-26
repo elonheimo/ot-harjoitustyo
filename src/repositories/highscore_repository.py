@@ -8,6 +8,9 @@ class HighscoreRepository:
     def add_event(self, name, event_type, game_mode):
         self.database.insert(name, event_type, game_mode)
 
+    def clear_highscores(self):
+        self.database.empty_table_events()
+
     def get_highscores(self, game_mode):
         """
         Returns the top 0 to 5 players in a list

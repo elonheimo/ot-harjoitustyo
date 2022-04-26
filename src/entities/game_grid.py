@@ -1,6 +1,7 @@
 import random
 from collections import namedtuple
 from entities.player import Player
+from repositories.highscore_repository import HighscoreRepository
 
 
 def victory_line_length(grid_size: int):
@@ -24,6 +25,7 @@ class GameGrid:
         self.winner = None
         self.turn = self.player1 if random.choice(
             [True, False]) else self.player2
+        self.highscore_repo = HighscoreRepository()
 
     def __str__(self) -> str:
         ret = f"\np1 {self.player1.name} | p2 {self.player2.name}"
@@ -79,14 +81,32 @@ class GameGrid:
                 if 0 <= x-y < self.grid_size:
                     increasing_diagonal_line.append(
                         Point(x-y,
-                            self.grid_size-1-x))
+                              self.grid_size-1-x))
                     decreasing_diagonal_line.append(Point(x-y, x))
 
             lines_to_check.append(increasing_diagonal_line)
             lines_to_check.append(decreasing_diagonal_line)
 
-        # FIX LEFT DOWN TO RIGHT UP
         return lines_to_check
+
+    def grid_size_as_text(self):
+        return f"{self.grid_size}x{self.grid_size}"
+
+    def _update_highscore_repo(self):
+        self.highscore_repo.add_event(
+            self.winner.name, "WIN", self.grid_size_as_text())
+        if self.player1 is not self.winner:
+            self.highscore_repo.add_event(
+                self.player1.name, "LOSE", self.grid_size_as_text())
+        else:
+            self.highscore_repo.add_event(
+                self.player2.name, "LOSE", self.grid_size_as_text())
+
+    # return highscores for current gridsize
+    def get_highscores(self):
+        return self.highscore_repo.get_highscores(
+            self.grid_size_as_text()
+        )
 
     def is_win(self):
         lines_to_check = self._get_lines_to_check()
@@ -107,5 +127,6 @@ class GameGrid:
                     consecutive_count += 1
                     if consecutive_count == self.win_length:
                         self.winner = self.grid[point.y][point.x]
+                        self._update_highscore_repo()
                         return True
         return False

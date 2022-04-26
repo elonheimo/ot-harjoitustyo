@@ -25,7 +25,7 @@ class GridView:
     def _initialize(self):
         self._frame = Frame(master=self._root)
 
-        self._frame.grid(row=0, column=0, sticky=E+W+S+N)
+        self._frame.grid(row=0, column=0, sticky=E+W+S+N, padx=10, pady=10)
         self._frame.columnconfigure(0, weight=1)
         self._frame.rowconfigure(0, weight=1)
 
@@ -36,13 +36,13 @@ class GridView:
         self._turn_label.grid(
             row=0, column=0, columnspan=self._game_grid.grid_size)
 
-        self._addButtons()
+        self._add_buttons()
 
     def _button_click(self, x, y):
 
         if self._game_grid.grid[y][x] == None:
             self._game_grid.place_to_grid(x, y)
-            self._addButtons()
+            self._add_buttons()
 
         if self._game_grid.is_win():
             self._turn_label["text"] = f"{self._game_grid.winner.name} won. Press here to exit"
@@ -55,7 +55,7 @@ class GridView:
 
         print(self._game_grid)
 
-    def _addButtons(self):
+    def _add_buttons(self):
 
         self.buttonFrame = Frame(master=self._frame)
         self.buttonFrame.rowconfigure(
