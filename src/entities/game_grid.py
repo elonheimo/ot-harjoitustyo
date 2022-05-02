@@ -4,7 +4,12 @@ from entities.player import Player
 from repositories.highscore_repository import HighscoreRepository
 
 
-def victory_line_length(grid_size: int):
+def victory_line_length(grid_size: int) -> int:
+    """Returns reguired line length for a win in tic-tac-toe
+
+    Args:
+        grid_size (int): size of the game grid
+    """
     if grid_size == 3:
         return 3
     if grid_size == 5:
@@ -15,13 +20,32 @@ def victory_line_length(grid_size: int):
 
 
 class GameGrid:
-    def __init__(self, grid_sise: int, player1: Player, player2: Player) -> None:
-        self.grid_size = grid_sise
-        self.grid = [[None for x in range(grid_sise)]
-                     for y in range(grid_sise)]
+    """Class that maintains tic-tac-toe game logic
+
+    Attributes:
+        grid_size: Size of the grid
+        grid: two dimensional list for storing grid
+        player1: player object
+        player2: player object
+        win_length: reguired line length for victory
+        winner: references the player that has won
+        turn: references player which turn it currently is
+        highscore_repo: HighscoreRepository object for database interaction
+    """
+    def __init__(self, grid_size: int, player1: Player, player2: Player) -> None:
+        """Class constructor. Initialises new GameGrid object.
+
+        Args:
+            grid_size (int): must be 3, 5 or 7
+            player1 (Player):
+            player2 (Player):
+        """
+        self.grid_size = grid_size
+        self.grid = [[None for x in range(grid_size)]
+                     for y in range(grid_size)]
         self.player1 = player1
         self.player2 = player2
-        self.win_length = victory_line_length(grid_sise)
+        self.win_length = victory_line_length(grid_size)
         self.winner = None
         self.turn = self.player1 if random.choice(
             [True, False]) else self.player2
@@ -42,16 +66,27 @@ class GameGrid:
         return ret
 
     def empty_grid(self):
+        """Empties the grid object
+        """
         self.grid = [[None for x in range(self.grid_size)]
                      for y in range(self.grid_size)]
 
     def change_turn(self):
+        """Changes turn object from one player to another
+        """
         if self.turn == self.player1:
             self.turn = self.player2
         else:
             self.turn = self.player1
 
-    def place_to_grid(self, x, y, player=None):
+    def place_to_grid(self, x: int, y: int, player: Player = None):
+        """Places a Player to xy co-ordinate in grid
+
+        Args:
+            x (int): x coord
+            y (int): y coord
+            player (Player, optional): reference to player object. Defaults to None.
+        """
         if player is None:
             self.grid[y][x] = self.turn
             self.change_turn()
@@ -59,7 +94,12 @@ class GameGrid:
             self.grid[y][x] = player
         print("clicked", "x", x, "y", y, self.grid[y][x].name)
 
-    def _get_lines_to_check(self):
+    def _get_lines_to_check(self) -> list:
+        """Return the lines to check for victory
+
+        Returns:
+            list: elements are namedtuple point with x and y values
+        """
         Point = namedtuple("Point", "x y")
         lines_to_check = []
 
@@ -90,9 +130,13 @@ class GameGrid:
         return lines_to_check
 
     def grid_size_as_text(self):
+        """Return grid size as str. Example '3x3'
+        """
         return f"{self.grid_size}x{self.grid_size}"
 
     def _update_highscore_repo(self):
+        """Calls HighscoreRepository object to add event row to database
+        """
         self.highscore_repo.add_event(
             self.winner.name, "WIN", self.grid_size_as_text())
         if self.player1 is not self.winner:
@@ -102,13 +146,19 @@ class GameGrid:
             self.highscore_repo.add_event(
                 self.player2.name, "LOSE", self.grid_size_as_text())
 
-    # return highscores for current gridsize
     def get_highscores(self):
+        """Top 5 players. example element ['Name',6]
+        """
         return self.highscore_repo.get_highscores(
             self.grid_size_as_text()
         )
 
-    def is_win(self):
+    def is_win(self) -> bool:
+        """Checks if self.grid contains winning line and updates self.winner to winning player
+
+        Returns:
+            bool: True if there is a win. False if no win.
+        """
         lines_to_check = self._get_lines_to_check()
 
         for line in lines_to_check:
