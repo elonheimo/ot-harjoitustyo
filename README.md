@@ -9,6 +9,8 @@ Huipputulokset tallennetaan tietokantaan pelaajanimien perusteella.
 
 ## Dokumentaatio
 
+- [Käyttöohje](/dokumentaatio/kayttoohje.md)
+
 - [Vaatimusmäärittely](/dokumentaatio/vaatimusmaarittely.md)
 
 - [Työaikakirjanpito](/dokumentaatio/tuntikirjanpito.md)
