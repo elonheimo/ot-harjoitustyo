@@ -1,3 +1,4 @@
+from ast import Return
 import random
 from collections import namedtuple
 from entities.player import Player
@@ -68,6 +69,7 @@ class GameGrid:
     def empty_grid(self):
         """Empties the grid object
         """
+        self.winner = None
         self.grid = [[None for x in range(self.grid_size)]
                      for y in range(self.grid_size)]
 
@@ -152,6 +154,18 @@ class GameGrid:
         return self.highscore_repo.get_highscores(
             self.grid_size_as_text()
         )
+
+    def is_full(self) -> bool:
+        """Return if grid is full
+
+        Returns:
+            bool: True if full. Otherwise False
+        """
+        for y in range(self.grid_size):
+            for x in range(self.grid_size):
+                if self.grid[y][x] is None:
+                    return False
+        return True
 
     def is_win(self) -> bool:
         """Checks if self.grid contains winning line and updates self.winner to winning player

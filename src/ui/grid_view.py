@@ -50,9 +50,15 @@ class GridView:
                 "<Button-1>",  # "<Return>", #"<Button-1>",
                 lambda e: self._handle_hichscores_view(self._game_grid)
             )
+        elif self._game_grid.is_full():
+            self._turn_label["text"] = "Game tie is tie. Press here to exit"
         else:
             self._turn_label["text"] = f"{self._game_grid.turn.name}'s turn"
-
+            self._turn_label.bind(
+                "<Button-1>",  # "<Return>", #"<Button-1>",
+                lambda e: self._handle_hichscores_view(self._game_grid)
+            )
+        
         print(self._game_grid)
 
     def _add_buttons(self):
@@ -77,7 +83,10 @@ class GridView:
         for y in range(self._game_grid.grid_size):
             for x in range(self._game_grid.grid_size):
                 if self._game_grid.grid[y][x] == None:
-                    def onClick(a, b): return self._button_click(a, b)
+                    
+                    def onClick(a, b):
+                        if self._game_grid.winner is None:
+                            return self._button_click(a, b)
                     button = Button(
                         self.buttonFrame,
                         command=partial(onClick, x, y)
