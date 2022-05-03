@@ -84,3 +84,10 @@ class TestGameGrid(unittest.TestCase):
         for y in range(0, 4):
             self.gamegrid.place_to_grid(y+1, y, self.player1)
         self.assertEqual(True, self.gamegrid.is_win())
+
+    def test_is_full(self):
+        self.assertEqual(False, self.gamegrid.is_full())
+        for y in range(3):
+            for x in range(3):
+                self.gamegrid.place_to_grid(x, y)
+        self.assertEqual(True, self.gamegrid.is_full())

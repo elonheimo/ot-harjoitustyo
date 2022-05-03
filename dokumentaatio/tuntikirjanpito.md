@@ -13,4 +13,5 @@
 | 26.4. | 9    | tietokannan liittäminen käyttöliittymään |
 | 2.5. | 3    | docstring lisäilyä |
 | 2.5. | 2    | graafien piirtoa |
-| aika yht:    | *57h*    ||
+| 2.5. | 3    | tasapelitilanne pelilogiikkaan ja estä pelin jatkaminen voiton jälkeen |
+| aika yht:    | *60h*    ||
