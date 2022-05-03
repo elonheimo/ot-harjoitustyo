@@ -11,4 +11,6 @@
 | 12.4. | 2    | arkkitehtuuri lisätty |
 | 12.4. | 6    | tietokanta-asioiden opettelua ja ongelmiin juuttumista |
 | 26.4. | 9    | tietokannan liittäminen käyttöliittymään |
-| aika yht:    | *52h*    ||
+| 2.5. | 3    | docstring lisäilyä |
+| 2.5. | 2    | graafien piirtoa |
+| aika yht:    | *57h*    ||

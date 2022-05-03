@@ -50,4 +50,26 @@ Sovelluksen toiminnallisuus on GameGrid luokan oliossa.
 
 ## Tietojen pysyväistallennus
 
-Lisätään myöhemmin
+Repositories pakkauksen luokka ```HighscoreReposity``` vastaa tiedon pysyväistallennuksesta. 
+
+### Tiedostot
+
+Sovellus tallentaa tiedot  SQLite tietokantaan. Tietotokantatiedoston nimi on määritelty [.env](../.env) konfiguraatiotiedostossa. Tapahtumat (voitot ja häviöt) tallennetaan SQLite-tietokannan tauluun ```events```
+
+## Päätoiminnallisuudet
+```mermaid
+sequenceDiagram
+    actor user
+    UI ->> UI: show_settings_view()
+    user ->> UI: click "Play" button
+    UI ->> GameGrid: Gamegrid(3, player1, player2)
+    GameGrid ->> UI: gamegrid
+    UI ->> UI: show_grid_view()
+    UI ->> GameGrid: gamgrid.place_to_grid(0,0,"player")
+    GameGrid ->> HighscoreReposiry: add_event("player", "WIN", "3x3")
+    UI ->> UI: show_highscores_view()
+    UI ->> GameGrid: get_highscores()
+    GameGrid ->> HighscoreRepository: get_highscores()
+    HighscoreRepository ->> GameGrid: 
+    GameGrid ->> UI: 
+```
