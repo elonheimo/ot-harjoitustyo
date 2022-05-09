@@ -16,3 +16,6 @@
 - tietokantaominaisuudet lisätty käyttöliittymään
 
 ## Viikko 6
+
+- Lisätty käyttöohje ja docstring
+- Lisätty tasapelitilanne pelilogiikkaan, sekä pelin pysähtyminen toisen pelaajan voitettua
