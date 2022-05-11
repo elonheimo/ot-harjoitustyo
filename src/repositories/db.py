@@ -16,7 +16,6 @@ class DB:
     def create_table(self):
         """Initialises a new table to database if not exists
         """
-        #self.cursor.execute("DROP TABLE events")
         self.cursor.execute("""CREATE TABLE IF NOT EXISTS events(
             id integer primary key autoincrement,
             name TEXT,
