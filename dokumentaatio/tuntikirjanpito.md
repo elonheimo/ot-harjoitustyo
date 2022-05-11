@@ -14,4 +14,5 @@
 | 2.5. | 3    | docstring lisäilyä |
 | 2.5. | 2    | graafien piirtoa |
 | 2.5. | 3    | tasapelitilanne pelilogiikkaan ja estä pelin jatkaminen voiton jälkeen |
-| aika yht:    | *60h*    ||
+| 11.5. | 3    | loppupalautus release, kommentoidun koodin poistoa, testausdokumentti |
+| aika yht:    | *63h*    ||
