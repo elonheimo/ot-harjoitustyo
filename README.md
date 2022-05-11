@@ -21,6 +21,7 @@ Huipputulokset tallennetaan tietokantaan pelaajanimien perusteella.
 
 - [Arkkitehtuuri](/dokumentaatio/arkkitehtuuri.md)
 
+- [Testausdokumentti](/dokumentaatio/testaus.md)
 
 ## Asennusohjeet
 1. Asenna riippuvuudet
