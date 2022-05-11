@@ -19,3 +19,10 @@
 
 - Lisätty käyttöohje ja docstring
 - Lisätty tasapelitilanne pelilogiikkaan, sekä pelin pysähtyminen toisen pelaajan voitettua
+
+## Viikko 7
+
+- Lisätty testausdokumentti
+- Päivitetty vaatimusmäärittely
+- Poistettu kommentoitua koodia lähdekoodista
+- luotu loppupalautus release
