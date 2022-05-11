@@ -10,4 +10,3 @@ except FileNotFoundError:
 
 DB_NAME = os.getenv('DATABASE_FILENAME') or 'database.sqlite'
 DB_PATH = os.path.join(DIRNAME, DB_NAME)
-#DB_PATH = os.path.join(DIRNAME, '..', 'data', DB_NAME)
