@@ -9,6 +9,8 @@ Huipputulokset tallennetaan tietokantaan pelaajanimien perusteella.
 
 [viikko 6](https://github.com/elonheimo/ot-harjoitustyo/releases/tag/viikko6)
 
+[loppupalautus](https://github.com/elonheimo/ot-harjoitustyo/releases/tag/v1.0.0)
+
 ## Dokumentaatio
 
 - [Käyttöohje](/dokumentaatio/kayttoohje.md)
